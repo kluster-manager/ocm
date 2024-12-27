@@ -1,12 +1,10 @@
-FROM golang:1.22-bullseye AS builder
-ARG OS=linux
-ARG ARCH=amd64
+FROM golang:1.23 AS builder
+
 WORKDIR /go/src/open-cluster-management.io/ocm
 COPY . .
 ENV GO_PACKAGE open-cluster-management.io/ocm
 
-RUN GOOS=${OS} \
-    GOARCH=${ARCH} \
+RUN CGO_ENABLED=0 \
     GO_BUILD_PACKAGES=./cmd/registration \
     make build --warn-undefined-variables
 
