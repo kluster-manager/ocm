@@ -27,8 +27,7 @@ jobs:
       - name: checkout code
         uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
         with:
-          fetch-tags: true
-          fetch-depth: 1
+          fetch-depth: 0
           path: go/src/open-cluster-management.io/ocm
       - name: get release version
         run: |
@@ -50,8 +49,7 @@ jobs:
       - name: checkout code
         uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
         with:
-          fetch-tags: true
-          fetch-depth: 1
+          fetch-depth: 0
           path: go/src/open-cluster-management.io/ocm
       - name: Set up Python 3.x
         uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
