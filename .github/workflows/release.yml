@@ -65,7 +65,7 @@ jobs:
           python hack/changelog.py ${{ secrets.GITHUB_TOKEN }} ${{ needs.env.outputs.RELEASE_VERSION }} > /home/runner/work/changelog.txt
           cat /home/runner/work/changelog.txt
       - name: setup helm
-        uses: azure/setup-helm@v4
+        uses: azure/setup-helm@b9e51907a09c216f16ebe8536097933489208112 # v4.3.0
       - name: chart package
         if: github.event_name != 'pull_request'
         run: |
@@ -76,7 +76,7 @@ jobs:
           popd
       - name: publish release
         if: github.event_name != 'pull_request'
-        uses: softprops/action-gh-release@3bb12739c298aeb8a4eeaf626c5b8d85266b0e65 # v2.6.2
+        uses: softprops/action-gh-release@26994186c0ac3ef5cae75ac16aa32e8153525f77 # v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
